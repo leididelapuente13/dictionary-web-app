@@ -1,1 +1,141 @@
 @import "tailwindcss";
+
+/* Inconsolata - Monospace Font */
+@font-face {
+  font-family: "Inconsolata";
+  src: url("./app/assets/fonts/inconsolata/Inconsolata-VariableFont_wdth,wght.ttf")
+    format("truetype");
+  font-weight: 100 900;
+  font-stretch: 50% 200%;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Inconsolata";
+  src: url("./app/assets/fonts/inconsolata/static/Inconsolata-Regular.ttf")
+    format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Inconsolata";
+  src: url("./app/assets/fonts/inconsolata/static/Inconsolata-Bold.ttf")
+    format("truetype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Inter - Sans Serif Font */
+@font-face {
+  font-family: "Inter";
+  src: url("./app/assets/fonts/inter/Inter-VariableFont_slnt,wght.ttf")
+    format("truetype");
+  font-weight: 100 900;
+  font-style: oblique -10deg 0deg;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Inter";
+  src: url("./app/assets/fonts/inter/static/Inter-Regular.ttf")
+    format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Inter";
+  src: url("./app/assets/fonts/inter/static/Inter-Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Lora - Serif Font */
+@font-face {
+  font-family: "Lora";
+  src: url("./app/assets/fonts/lora/Lora-VariableFont_wght.ttf")
+    format("truetype");
+  font-weight: 400 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Lora";
+  src: url("./app/assets/fonts/lora/Lora-Italic-VariableFont_wght.ttf")
+    format("truetype");
+  font-weight: 400 700;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Lora";
+  src: url("./app/assets/fonts/lora/static/Lora-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Lora";
+  src: url("./app/assets/fonts/lora/static/Lora-Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Lora";
+  src: url("./app/assets/fonts/lora/static/Lora-BoldItalic.ttf")
+    format("truetype");
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
+}
+
+@theme {
+  /* Colors */
+  --color-black: #050505;
+  --color-gray-900: #1f1f1f;
+  --color-gray-800: #2d2d2d;
+  --color-gray-700: #3a3a3a;
+  --color-gray-500: #757575;
+  --color-gray-200: #e9e9e9;
+  --color-gray-100: #f4f4f4;
+  --color-white: #ffffff;
+  --color-primary: #a445ed;
+  --color-danger: #ff5252;
+
+  /* Fonts sizes*/
+  --text-heading-lg: 4rem;
+  --text-heading--line-heigh: 4.8125rem;
+
+  --text-heading-md: 1.5rem;
+  --text-heading--line-heigh: 1.8125rem;
+
+  --text-heading-sm: 1.25rem;
+  --text-heading--line-heigh: 1.5rem;
+
+  --text-body-md: 1.125rem;
+  --text-body--line-heigh: 1.5rem;
+
+  --text-body-sm: 0.875rem;
+  --text-body--line-heigh: 1.0625rem;
+
+  /* Font families */
+  --font-family-sans: "Inter", system-ui, sans-serif;
+  --font-family-serif: "Lora", Georgia, serif;
+  --font-family-mono: "Inconsolata", "Consolas", monospace;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
