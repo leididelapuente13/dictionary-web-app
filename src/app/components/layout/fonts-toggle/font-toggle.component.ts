@@ -33,13 +33,18 @@ export class FontToggleComponent {
     this.isFontSelectionOpen.set(!this.isFontSelectionOpen())
   }
 
-  get currentFontFamily (){
+  get currentFontFamilyKey (){
     return this.fontFamilyState.currentFont();
+  }
+
+  get currentFontFamilyName(){
+    const currentFont = this.fonts.find((font) => font.value === this.currentFontFamilyKey);
+    return currentFont ? currentFont.label : '';
   }
 
   changeFont(font: FontFamilyTypes) {
     this.fontFamilyState.changeFont(font);
-    console.log(this.currentFontFamily);
+    console.log(this.currentFontFamilyKey);
     this.toggleFontSelection();
   }
 }

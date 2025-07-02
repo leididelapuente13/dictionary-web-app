@@ -3,10 +3,8 @@
     class="flex items-center gap-x-2 hover:cursor-pointer"
     (click)="toggleFontSelection()"
   >
-    <p
-      class="font-bold text-body-md"
-    >
-      {{ currentFontFamily }}
+    <p class="font-bold text-body-md">
+      {{ currentFontFamilyName }}
     </p>
     <img
       src="assets/images/icon-arrow-down.svg"
@@ -23,7 +21,7 @@
     <li
       class="text-body-sm font-bold hover:text-primary hover:cursor-pointer"
       [ngClass]="{
-        'text-primary': item.value === currentFontFamily,
+        'text-primary': item.value === currentFontFamilyKey,
         'font-family-mono': item.value === 'mono',
         'font-family-sans': item.value === 'sans',
         'font-family-serif': item.value === 'serif'
