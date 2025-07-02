@@ -1,0 +1,38 @@
+<div>
+  <div
+    class="flex items-center gap-x-2 hover:cursor-pointer"
+    (click)="toggleFontSelection()"
+  >
+    <p
+      class="font-bold text-body-md"
+    >
+      {{ currentFontFamily }}
+    </p>
+    <img
+      src="assets/images/icon-arrow-down.svg"
+      alt="Arrow down icon"
+      width="12"
+      height="12"
+    />
+  </div>
+  @if (isFontSelectionOpen()) {
+  <ul
+    class="overflow-y-scroll bg-gray-900 absolute right-24 py-4 px-5 rounded-lg w-36 flex flex-col gap-2 mt-3 shadow-[0px_3px_13px_2px_#A445ED]"
+  >
+    @for (item of fonts; track $index) {
+    <li
+      class="text-body-sm font-bold hover:text-primary hover:cursor-pointer"
+      [ngClass]="{
+        'text-primary': item.value === currentFontFamily,
+        'font-family-mono': item.value === 'mono',
+        'font-family-sans': item.value === 'sans',
+        'font-family-serif': item.value === 'serif'
+      }"
+      (click)="changeFont(item.value)"
+    >
+      {{ item.label }}
+    </li>
+    }
+  </ul>
+  }
+</div>
