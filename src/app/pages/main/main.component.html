@@ -1,0 +1,10 @@
+<main
+  class="bg-black h-screen text-white"
+  [ngClass]="{
+    'font-family-mono': currentFontFamily === 'mono',
+    'font-family-sans': currentFontFamily === 'sans',
+    'font-family-serif': currentFontFamily === 'serif'
+  }"
+>
+  <app-header />
+</main>
