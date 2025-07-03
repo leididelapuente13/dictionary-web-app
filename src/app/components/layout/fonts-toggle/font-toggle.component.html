@@ -3,7 +3,7 @@
     class="flex items-center gap-x-2 hover:cursor-pointer"
     (click)="toggleFontSelection()"
   >
-    <p class="font-bold text-body-md">
+    <p class="font-bold text-body-sm md:text-body-md">
       {{ currentFontFamilyName }}
     </p>
     <img
@@ -19,7 +19,7 @@
   >
     @for (item of fonts; track $index) {
     <li
-      class="text-body-sm font-bold hover:text-primary hover:cursor-pointer"
+      class="text-body-sm font-bold hover:text-primary hover:cursor-pointer md:text-body-md"
       [ngClass]="{
         'text-primary': item.value === currentFontFamilyKey,
         'font-family-mono': item.value === 'mono',
