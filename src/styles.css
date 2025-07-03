@@ -110,20 +110,20 @@
   --color-danger: #ff5252;
 
   /* Fonts sizes*/
-  --text-heading-lg: 4rem;
-  --text-heading--line-heigh: 4.8125rem;
+  --text-heading-lg: 4rem; /* 64px */
+  --text-heading--line-heigh: 4.8125rem; /* 77px */
 
-  --text-heading-md: 1.5rem;
-  --text-heading--line-heigh: 1.8125rem;
+  --text-heading-md: 1.5rem; /* 24px */
+  --text-heading--line-heigh: 1.8125rem; /* 29px */
 
-  --text-heading-sm: 1.25rem;
-  --text-heading--line-heigh: 1.5rem;
+  --text-heading-sm: 1.25rem; /* 20px */
+  --text-heading--line-heigh: 1.5rem; /* 24px */
 
-  --text-body-md: 1.125rem;
-  --text-body--line-heigh: 1.5rem;
+  --text-body-md: 1.125rem; /* 18px */
+  --text-body--line-heigh: 1.5rem; /* 24px */
 
-  --text-body-sm: 0.875rem;
-  --text-body--line-heigh: 1.0625rem;
+  --text-body-sm: 0.875rem; /* 14px */
+  --text-body--line-heigh: 1.0625rem; /* 17px */
 
   /* Font families */
   --font-family-sans: "Inter", system-ui, sans-serif;
