@@ -125,6 +125,10 @@
   --text-body-sm: 0.875rem; /* 14px */
   --text-body--line-heigh: 1.0625rem; /* 17px */
 
+  --text-body-xs: 15px;
+  --text-body-base: 16px;
+  --text-heading-base: 2rem; /* 32px */
+
   /* Font families */
   --font-family-sans: "Inter", system-ui, sans-serif;
   --font-family-serif: "Lora", Georgia, serif;
