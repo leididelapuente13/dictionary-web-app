@@ -1,0 +1,8 @@
+<div class="text-body-base md:text-heading-sm flex gap-6">
+  <p class="text-gray-500">{{ item().name | titlecase }}</p>
+  <div>
+    @for (path of item().paths; track $index) {
+    <a class="text-primary font-bold mr-2 hover:cursor-pointer">{{ path }}</a>
+    }
+  </div>
+</div>
