@@ -7,6 +7,17 @@
   }"
 >
   <app-header />
-  <dictionary-search-bar />
+  <dictionary-search-bar (wordSearch)="wordToSearch.set($event)" />
+  @if (!dictionaryEntryResource.isLoading() &&
+  dictionaryEntryResource.hasValue()) {
   <dictionary-entry-article />
+  }
+  <!--  -->
+  @if(dictionaryEntryResource.isLoading()){
+  <app-loader />
+  }
+  <!--  -->
+  @if(dictionaryEntryResource.error() && !dictionaryEntryResource.isLoading()){
+  <app-not-found />
+  }
 </main>
