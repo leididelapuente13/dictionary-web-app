@@ -2,6 +2,9 @@
   class="bg-gray-900 w-full rounded-2xl h-12 py-3 px-6 flex items-center focus-within:border focus-within:border-primary md:h-16"
   [formGroup]="form"
   (ngSubmit)="onSearch()"
+  [ngClass]="{
+    'border border-danger focus-within:border focus-within:border-danger': isValidField()
+  }"
 >
   <input
     type="text"

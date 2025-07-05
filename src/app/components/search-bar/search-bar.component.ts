@@ -1,11 +1,11 @@
-import { NgOptimizedImage } from '@angular/common';
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { NgClass, NgOptimizedImage } from '@angular/common';
+import { ChangeDetectionStrategy, Component, output } from '@angular/core';
 import { ErrorMessageComponent } from "./error-message/error-message.component";
 import { FormControl, FormGroup, Validators, ReactiveFormsModule, ValidationErrors } from '@angular/forms';
 
 @Component({
   selector: 'dictionary-search-bar',
-  imports: [ReactiveFormsModule, NgOptimizedImage, ErrorMessageComponent],
+  imports: [ReactiveFormsModule, NgOptimizedImage, NgClass, ErrorMessageComponent],
   templateUrl: './search-bar.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
@@ -14,12 +14,15 @@ export class SearchBarComponent {
     query: new FormControl('', [Validators.required])
   });
 
+  wordSearch = output<string>();
+
   onSearch() {
     if (this.form.invalid) {
       this.form.markAllAsTouched();
       return
     }
     console.log(this.form.value)
+    this.wordSearch.emit(this.form.value.query!);
   }
 
   isValidField() {
@@ -28,17 +31,17 @@ export class SearchBarComponent {
   }
 
   getTextError(errors: ValidationErrors) {
-    for(const key of Object.keys(errors)){
-      if(key === 'required'){
+    for (const key of Object.keys(errors)) {
+      if (key === 'required') {
         return 'Whoops, can’t be empty…'
       }
     }
     return null;
   }
 
-  getFieldError(){
+  getFieldError() {
     const control = this.form.controls['query'];
-    if(!control) return null
+    if (!control) return null
     return this.getTextError(control.errors ?? {});
   }
 }
