@@ -23,7 +23,7 @@ export class DictionaryMapper {
     return {
       phonetic: dictionaryEntries[0].phonetic,
       meanings: dictionaryEntries.flatMap((entry) => entry.meanings),
-      sourceUrls: dictionaryEntries.flatMap((entry) => entry.sourceUrls)
+      sourceUrls: dictionaryEntries[0].sourceUrls
     }
   }
 }
