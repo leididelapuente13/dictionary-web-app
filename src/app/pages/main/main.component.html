@@ -1,5 +1,5 @@
 <main
-  class="bg-black h-screen text-white px-8 pt-8 md:pt-14 flex flex-col gap-8 lg:w-[736px] lg:mx-auto"
+  class="bg-black h-screen text-white px-8 py-8 md:pt-14 flex flex-col gap-8 lg:w-[736px] lg:mx-auto"
   [ngClass]="{
     'font-family-mono': currentFontFamily === 'mono',
     'font-family-sans': currentFontFamily === 'sans',
@@ -10,14 +10,17 @@
   <dictionary-search-bar (wordSearch)="wordToSearch.set($event)" />
   @if (!dictionaryEntryResource.isLoading() &&
   dictionaryEntryResource.hasValue()) {
-  <dictionary-entry-article />
+  <dictionary-entry-article
+    [dictionaryEntry]="dictionaryEntryResource.value()"
+  />
   }
   <!--  -->
   @if(dictionaryEntryResource.isLoading()){
   <app-loader />
   }
   <!--  -->
-  @if(dictionaryEntryResource.error() && !dictionaryEntryResource.isLoading()){
+  @if(dictionaryEntryResource.error() && !dictionaryEntryResource.isLoading() &&
+  dictionaryEntryResource.value === undefined){
   <app-not-found />
   }
 </main>

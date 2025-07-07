@@ -28,8 +28,8 @@ export class MainComponent {
   wordToSearch = signal<string>('');
 
   dictionaryEntryResource = resource({
-    request: ()=>({word: this.wordToSearch()}),
-    loader: ({request})=>{
+    request: () => ({ word: this.wordToSearch() }),
+    loader: ({ request }) => {
       return firstValueFrom(this.dictionaryService.getDictionaryEntry(request.word));
     }
   })
