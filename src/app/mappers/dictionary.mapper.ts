@@ -17,7 +17,13 @@ export class DictionaryMapper {
     }
   }
 
-  static RestDictionaryEntryArrayToDictionaryEntryArray(restDictionaryArray: RESTDictionaryEntry[]): DictionaryEntry[] {
-    return restDictionaryArray.map((restDictionaryEntry) => this.RestDictionaryEntryToDictionaryEntry(restDictionaryEntry))
+  static RestDictionaryEntryArrayToDictionaryEntryArray(restDictionaryArray: RESTDictionaryEntry[]): DictionaryEntry {
+    const dictionaryEntries = restDictionaryArray.map((restDictionaryEntry) => this.RestDictionaryEntryToDictionaryEntry(restDictionaryEntry))
+
+    return {
+      phonetic: dictionaryEntries[0].phonetic,
+      meanings: dictionaryEntries.flatMap((entry) => entry.meanings),
+      sourceUrls: dictionaryEntries.flatMap((entry) => entry.sourceUrls)
+    }
   }
 }

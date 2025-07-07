@@ -13,10 +13,17 @@ export class DictionaryService {
 
   private http = inject(HttpClient);
   private readonly BASE_URL = environment.API_URL;
-  private cacheWordsDefinition = new Map<string, DictionaryEntry[]>()
+  private cacheWordsDefinition = new Map<string, DictionaryEntry>()
 
-  getDictionaryEntry(word: string): Observable<DictionaryEntry[]> {
-    if (this.cacheWordsDefinition.has(word)) return of(this.cacheWordsDefinition.get(word) ?? [])
+  getDictionaryEntry(word: string): Observable<DictionaryEntry> {
+    if (this.cacheWordsDefinition.has(word)) {
+      const entry = this.cacheWordsDefinition.get(word);
+      if (entry !== undefined) {
+        return of(entry);
+      } else {
+        return throwError(() => new Error(`No dictionary entry found in cache for word: ${word}`));
+      }
+    }
 
     return this.http.get<RESTDictionaryEntry[]>(`${this.BASE_URL}/${word}`).pipe(
       map(response => DictionaryMapper.RestDictionaryEntryArrayToDictionaryEntryArray(response)),
