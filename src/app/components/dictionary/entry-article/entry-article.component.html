@@ -1,5 +1,7 @@
 <article class="flex flex-col gap-7">
-  <dictionary-header [phonetic]="dictionaryEntry().phonetics[0]" />
-  <dictionary-section />
-  <dictionary-source-link [sourcePaths]="['https://en.wiktionary.org/wiki/get']" />
+  <dictionary-header [phonetic]="dictionaryEntry()?.phonetic" />
+  @for (meaning of dictionaryEntry()?.meanings; track $index) {
+    <dictionary-section [content]="meaning" />
+  }
+  <dictionary-source-link [sourcePaths]="dictionaryEntry()?.sourceUrls!" />
 </article>
