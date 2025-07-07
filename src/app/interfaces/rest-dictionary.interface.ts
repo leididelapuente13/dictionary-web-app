@@ -1,34 +1,34 @@
-export interface RESTDictionaryEntry  {
-  word:       string;
-  phonetics:  Phonetic[];
-  meanings:   Meaning[];
-  license:    License;
+export interface RESTDictionaryEntry {
+  word: string;
+  phonetics: Phonetic[];
+  meanings: Meaning[];
+  license: License;
   sourceUrls: string[];
 }
 
-export interface License {
+interface License {
   name: string;
-  url:  string;
+  url: string;
 }
 
-export interface Meaning {
+interface Meaning {
   partOfSpeech: string;
-  definitions:  Definition[];
-  synonyms:     string[];
-  antonyms:     string[];
+  definitions: Definition[];
+  synonyms: string[];
+  antonyms: string[];
 }
 
-export interface Definition {
+interface Definition {
   definition: string;
-  synonyms:   string[];
-  antonyms:   string[];
-  example?:   string;
+  synonyms: string[];
+  antonyms: string[];
+  example?: string;
 }
 
-export interface Phonetic {
-  audio:      string;
+interface Phonetic {
+  audio: string;
   sourceUrl?: string;
-  license?:   License;
-  text?:      string;
+  license?: License;
+  text?: string;
 }
 

@@ -1,23 +1,23 @@
 export interface DictionaryEntry {
-  phonetic: Phonetic,
+  phonetic: ComposePhonetic,
   meanings: Meaning[];
   sourceUrls: string[];
 }
 
-interface Phonetic {
+export interface ComposePhonetic {
   word: string;
   phonetictText?: string;
   audioUrl?: string;
 }
 
-interface Meaning {
+export interface Meaning {
   partOfSpeech: string;
   definitions: Definition[];
   synonyms: string[];
   antonyms: string[];
 }
 
-interface Definition {
+export interface Definition {
   definition: string;
   synonyms: string[];
   antonyms: string[];
