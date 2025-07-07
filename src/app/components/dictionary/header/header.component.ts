@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, input, signal } from '@angular/core';
-import { Phonetic } from '../../../interfaces/rest-dictionary.interface';
 import { AudioComponent } from "./audio/audio.component";
+import { ComposePhonetic } from '../../../interfaces';
 
 @Component({
   selector: 'dictionary-header',
@@ -9,5 +9,5 @@ import { AudioComponent } from "./audio/audio.component";
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class HeaderComponent {
-  phonetic = input<Phonetic>()
+  phonetic = input<ComposePhonetic>()
 }

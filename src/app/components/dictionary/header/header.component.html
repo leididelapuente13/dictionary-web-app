@@ -1,11 +1,11 @@
 <div class="flex justify-between items-center">
   <div>
-    <h2 class="text-heading-base font-bold md:text-heading-lg">Hello</h2>
+    <h2 class="text-heading-base font-bold md:text-heading-lg">{{phonetic()?.word}}</h2>
     <p class="text-primary text-body-md md:text-heading-md">
-      {{ phonetic()?.text ?? "" }}
+      {{ phonetic()?.phonetictText }}
     </p>
   </div>
-  @if (typeof phonetic()?.audio === 'string') {
-  <dictionary-audio [audioUrl]="phonetic()?.audio ?? ''" />
+  @if (typeof phonetic()?.audioUrl === 'string') {
+  <dictionary-audio [audioUrl]="phonetic()?.audioUrl!" />
   }
 </div>
