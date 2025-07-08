@@ -1,12 +1,14 @@
-<!-- TODO: fix overflow when there are many links  -->
 <!-- TODO: trigger search by clicking the links  -->
 <div class="text-body-base md:text-heading-sm flex flex-wrap gap-6">
   <p class="text-gray-500">{{ item().name | titlecase }}</p>
-  <div class="text-primary font-bold">
+  <ul class="text-primary font-bold" style="max-width: 100%">
     @for (path of item().paths; track $index; let index = $index) {
-    <a class="hover:cursor-pointer">{{ `${path}` }}</a>
-    @if (item().paths.length > 1 && index+1 < item().paths.length){
-    <span class="mr-1.5">,</span>
-    } }
-  </div>
+    <li class="inline">
+      <a class="hover:cursor-pointer inline-block">{{ `${path}` }}</a>
+      @if (item().paths.length > 1 && index+1 < item().paths.length){
+      <span class="mr-1.5">,</span>
+      }
+    </li>
+    }
+  </ul>
 </div>
