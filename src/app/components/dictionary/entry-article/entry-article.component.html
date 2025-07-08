@@ -1,7 +1,7 @@
-<article class="flex flex-col gap-7">
+<article class="flex flex-col gap-7 pb-8">
   <dictionary-header [phonetic]="dictionaryEntry()?.phonetic" />
   @for (meaning of dictionaryEntry()?.meanings; track $index) {
-    <dictionary-section [content]="meaning" />
+  <dictionary-section [content]="meaning" />
   }
   <dictionary-source-link [sourcePaths]="dictionaryEntry()?.sourceUrls!" />
 </article>
