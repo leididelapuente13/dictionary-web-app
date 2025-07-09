@@ -1,5 +1,6 @@
+import { Component, ChangeDetectionStrategy, input, inject } from '@angular/core';
 import { TitleCasePipe } from '@angular/common';
-import { ChangeDetectionStrategy, Component, input } from '@angular/core';
+import { DictionaryService } from '../../../services';
 
 @Component({
   selector: 'dictionary-links',
@@ -8,8 +9,12 @@ import { ChangeDetectionStrategy, Component, input } from '@angular/core';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class LinksComponent {
+
+  private dictionaryService = inject(DictionaryService);
+
   item = input.required<{
     name: string,
     paths: string[]
   }>();
+
 }

@@ -1,9 +1,9 @@
-import { ChangeDetectionStrategy, Component, input, signal } from '@angular/core';
-import { HeaderComponent } from "../header/header.component";
-import { RESTDictionaryEntry } from '../../../interfaces/rest-dictionary.interface';
-import { SectionComponent } from "../section/section.component";
-import { SourceLinkComponent } from "../source-link/source-link.component";
+import { ChangeDetectionStrategy, Component, input } from '@angular/core';
+
 import { DictionaryEntry } from '../../../interfaces';
+import { HeaderComponent } from '../header/header.component';
+import { SectionComponent } from '../section/section.component';
+import { SourceLinkComponent } from '../source-link/source-link.component';
 
 @Component({
   selector: 'dictionary-entry-article',

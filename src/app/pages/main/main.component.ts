@@ -1,13 +1,13 @@
 import { ChangeDetectionStrategy, Component, inject, resource, signal } from '@angular/core';
 import { NgClass } from '@angular/common';
-
-import { HeaderComponent } from "../../components/layout/header/header.component";
-import { FontFamilyStateService, DictionaryService } from '../../services';
-import { SearchBarComponent } from "../../components/search-bar/search-bar.component";
-import { EntryArticleComponent } from "../../components/dictionary/entry-article/entry-article.component";
-import { NotFoundComponent } from "../../components/feedback/not-found/not-found.component";
 import { firstValueFrom } from 'rxjs';
-import { LoaderComponent } from "../../components/feedback/loader/loader.component";
+
+import { DictionaryService, FontFamilyStateService } from '../../services';
+import { EntryArticleComponent } from '../../components/dictionary/entry-article/entry-article.component';
+import { HeaderComponent } from '../../components/layout/header/header.component';
+import { LoaderComponent } from '../../components/feedback/loader/loader.component';
+import { NotFoundComponent } from '../../components/feedback/not-found/not-found.component';
+import { SearchBarComponent } from '../../components/search-bar/search-bar.component';
 
 
 @Component({
@@ -21,15 +21,18 @@ export class MainComponent {
   fontFamilyState = inject(FontFamilyStateService);
   dictionaryService = inject(DictionaryService);
 
+  wordToSearch = signal<string>('');
+
   get currentFontFamily() {
     return this.fontFamilyState.currentFont()
   }
 
-  wordToSearch = signal<string>('');
-
   dictionaryEntryResource = resource({
     request: () => ({ word: this.wordToSearch() }),
     loader: ({ request }) => {
+      if (this.wordToSearch() === '') {
+        return Promise.resolve(undefined);
+      }
       return firstValueFrom(this.dictionaryService.getDictionaryEntry(request.word));
     }
   })

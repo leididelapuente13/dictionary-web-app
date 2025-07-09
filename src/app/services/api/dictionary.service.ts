@@ -1,10 +1,12 @@
-import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Observable, of, throwError } from 'rxjs';
+import { catchError, map, tap } from 'rxjs/operators';
+
 import { environment } from '../../../environments/environment.development';
-import { catchError, map, Observable, of, tap, throwError } from 'rxjs';
+import { DictionaryEntry, ResponseError } from '../../interfaces';
 import { RESTDictionaryEntry } from '../../interfaces/rest-dictionary.interface';
 import { DictionaryMapper } from '../../mappers/dictionary.mapper';
-import { DictionaryEntry, ResponseError } from '../../interfaces';
 
 @Injectable({
   providedIn: 'root'

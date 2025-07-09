@@ -1,5 +1,5 @@
 import { NgClass } from '@angular/common';
-import { ChangeDetectionStrategy, Component, inject, output, signal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject, signal } from '@angular/core';
 import { FontFamily, FontFamilyTypes } from '../../../interfaces/fonts.interface';
 import { FontFamilyStateService } from '../../../services/state/FontFamilyState.service';
 

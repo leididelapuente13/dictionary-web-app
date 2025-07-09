@@ -1,12 +1,12 @@
 import { ChangeDetectionStrategy, Component, input } from '@angular/core';
-import { TitleComponent } from "./title/title.component";
-import { SubtitleComponent } from "./subtitle/subtitle.component";
-import { LinksComponent } from "../links/links.component";
 import { Meaning } from '../../../interfaces';
+import { ListComponent } from './list/list.component';
+import { LinksComponent } from '../links/links.component';
+import { TitleComponent } from './title/title.component';
 
 @Component({
   selector: 'dictionary-section',
-  imports: [TitleComponent, SubtitleComponent, LinksComponent],
+  imports: [TitleComponent, ListComponent, LinksComponent],
   templateUrl: './section.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })

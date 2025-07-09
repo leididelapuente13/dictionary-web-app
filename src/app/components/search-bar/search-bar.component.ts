@@ -1,7 +1,8 @@
+import { ChangeDetectionStrategy, Component, inject, output } from '@angular/core';
 import { NgClass, NgOptimizedImage } from '@angular/common';
-import { ChangeDetectionStrategy, Component, output } from '@angular/core';
-import { ErrorMessageComponent } from "./error-message/error-message.component";
-import { FormControl, FormGroup, Validators, ReactiveFormsModule, ValidationErrors } from '@angular/forms';
+import { ReactiveFormsModule, FormControl, FormGroup, Validators, ValidationErrors } from '@angular/forms';
+import { ErrorMessageComponent } from './error-message/error-message.component';
+import { SearchService } from '../../services/api/search.service';
 
 @Component({
   selector: 'dictionary-search-bar',
@@ -13,7 +14,7 @@ export class SearchBarComponent {
   form = new FormGroup({
     query: new FormControl('', [Validators.required])
   });
-
+  searchService = inject(SearchService);
   wordSearch = output<string>();
 
   onSearch() {
@@ -21,7 +22,7 @@ export class SearchBarComponent {
       this.form.markAllAsTouched();
       return
     }
-    console.log(this.form.value)
+    this.searchService.setWordToSearch(this.form.value.query!);
     this.wordSearch.emit(this.form.value.query!);
   }
 

@@ -1,5 +1,5 @@
-import { ChangeDetectionStrategy, Component, input, signal } from '@angular/core';
-import { AudioComponent } from "./audio/audio.component";
+import { ChangeDetectionStrategy, Component, input } from '@angular/core';
+import { AudioComponent } from './audio/audio.component';
 import { ComposePhonetic } from '../../../interfaces';
 
 @Component({
