@@ -8,6 +8,7 @@ import { HeaderComponent } from '../../components/layout/header/header.component
 import { LoaderComponent } from '../../components/feedback/loader/loader.component';
 import { NotFoundComponent } from '../../components/feedback/not-found/not-found.component';
 import { SearchBarComponent } from '../../components/search-bar/search-bar.component';
+import { SearchService } from '../../services/api/search.service';
 
 
 @Component({
@@ -20,17 +21,16 @@ export class MainComponent {
 
   fontFamilyState = inject(FontFamilyStateService);
   dictionaryService = inject(DictionaryService);
-
-  wordToSearch = signal<string>('');
+  searchService = inject(SearchService);
 
   get currentFontFamily() {
     return this.fontFamilyState.currentFont()
   }
 
   dictionaryEntryResource = resource({
-    request: () => ({ word: this.wordToSearch() }),
+    request: () => ({ word: this.searchService.searchWord() }),
     loader: ({ request }) => {
-      if (this.wordToSearch() === '') {
+      if (this.searchService.searchWord() === '') {
         return Promise.resolve(undefined);
       }
       return firstValueFrom(this.dictionaryService.getDictionaryEntry(request.word));

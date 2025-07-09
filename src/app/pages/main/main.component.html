@@ -7,7 +7,7 @@
   }"
 >
   <app-header />
-  <dictionary-search-bar (wordSearch)="wordToSearch.set($event)" />
+  <dictionary-search-bar />
   @if (!dictionaryEntryResource.isLoading() &&
   dictionaryEntryResource.hasValue()) {
   <dictionary-entry-article
@@ -15,12 +15,11 @@
   />
   }
   <!--  -->
-  @if(dictionaryEntryResource.isLoading() && wordToSearch() !== ''){
+  @if(dictionaryEntryResource.isLoading()){
   <app-loader />
   }
   <!--  -->
-  @if(dictionaryEntryResource.error() && !dictionaryEntryResource.isLoading() &&
-  wordToSearch() !== ''){
+  @if(dictionaryEntryResource.error() && !dictionaryEntryResource.isLoading()){
   <app-not-found />
   }
 </main>

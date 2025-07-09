@@ -22,8 +22,7 @@ export class SearchBarComponent {
       this.form.markAllAsTouched();
       return
     }
-    this.searchService.setWordToSearch(this.form.value.query!);
-    this.wordSearch.emit(this.form.value.query!);
+    this.searchService.search(this.form.value.query!)
   }
 
   isValidField() {
