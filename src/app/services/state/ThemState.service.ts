@@ -1,6 +1,6 @@
-import { inject, Injectable, signal } from '@angular/core';
+import { Injectable, inject, signal } from '@angular/core';
 import { DOCUMENT } from '@angular/common';
-import { ThemeType } from '../../interfaces'
+import { ThemeType } from '../../interfaces';
 
 @Injectable({
   providedIn: 'root'
