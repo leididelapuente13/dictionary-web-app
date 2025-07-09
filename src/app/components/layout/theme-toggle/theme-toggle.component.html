@@ -1,6 +1,6 @@
 <div class="flex gap-x-3 items-center">
   <div
-    class="bg-primary w-10 h-5 rounded-xl flex justify-evenly items-center hover:cursor-pointer"
+    class="bg-gray-500 dark:bg-primary w-10 h-5 rounded-xl flex justify-evenly items-center hover:bg-primary hover:cursor-pointer"
     (click)="themeState.toggleTheme()"
   >
     <span
@@ -8,11 +8,20 @@
       [ngClass]="{ 'translate-x-2.5': currentThemeValue === 'dark', '-translate-x-2.5' :  currentThemeValue === 'light',}"
     ></span>
   </div>
-  <img
-    ngSrc="assets/images/icon-moon.svg"
-    height="20"
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
     width="20"
-    priority
-    class="hover:cursor-pointer"
-  />
+    height="20"
+    viewBox="0 0 22 22"
+    class="stroke-gray-500 dark:stroke-primary hover:stroke-primary hover:cursor-pointer"
+    (click)="themeState.toggleTheme()"
+  >
+    <path
+      fill="none"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      stroke-width="1.5"
+      d="M1 10.449a10.544 10.544 0 0 0 19.993 4.686C11.544 15.135 6.858 10.448 6.858 1A10.545 10.545 0 0 0 1 10.449Z"
+    />
+  </svg>
 </div>

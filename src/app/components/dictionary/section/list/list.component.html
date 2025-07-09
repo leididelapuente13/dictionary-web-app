@@ -1,1 +1,13 @@
-<p>list works!</p>,
+<div class="flex flex-col gap-5">
+  <section-subtitle subtitle="Meaning" />
+  <ul
+    class="list-disc marker:text-primary flex flex-col gap-2 ml-5 md:ml-6 text-body-xs md:text-body-md"
+  >
+    @for (definition of definitions(); track $index) {
+    <div>
+      <li>{{ definition.definition }}</li>
+      <p class="text-gray-500">{{ definition.example }}</p>
+    </div>
+    }
+  </ul>
+</div>

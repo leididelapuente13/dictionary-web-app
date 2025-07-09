@@ -1,5 +1,5 @@
 <main
-  class="bg-black h-screen text-white px-8 pt-8 md:pt-14 flex flex-col gap-8 lg:w-[736px] lg:mx-auto"
+  class="h-screen px-8 pt-8 md:pt-14 flex flex-col gap-8 lg:w-[736px] lg:mx-auto"
   [ngClass]="{
     'font-family-mono': currentFontFamily === 'mono',
     'font-family-sans': currentFontFamily === 'sans',
@@ -15,12 +15,12 @@
   />
   }
   <!--  -->
-  @if(dictionaryEntryResource.isLoading()){
+  @if(dictionaryEntryResource.isLoading() && wordToSearch() !== ''){
   <app-loader />
   }
   <!--  -->
   @if(dictionaryEntryResource.error() && !dictionaryEntryResource.isLoading() &&
-  dictionaryEntryResource.value === undefined){
+  wordToSearch() !== ''){
   <app-not-found />
   }
 </main>

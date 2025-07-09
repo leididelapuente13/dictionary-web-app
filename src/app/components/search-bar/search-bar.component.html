@@ -1,5 +1,5 @@
 <form
-  class="bg-gray-900 w-full rounded-2xl h-12 py-3 px-6 flex items-center focus-within:border focus-within:border-primary md:h-16"
+  class="bg-gray-100 dark:bg-gray-900 w-full rounded-2xl h-12 py-3 px-6 flex items-center focus-within:border focus-within:border-primary md:h-16"
   [formGroup]="form"
   (ngSubmit)="onSearch()"
   [ngClass]="{
@@ -8,7 +8,7 @@
 >
   <input
     type="text"
-    class="border-0 outline-0 w-full text-body-md font-bold text-white cursor-pointer caret-primary placeholder:opacity-45 md:text-heading-sm"
+    class="border-0 outline-0 w-full text-body-md font-bold text-gray-800 dark:text-white cursor-pointer caret-primary placeholder:opacity-20 placeholder:dark:opacity-45 md:text-heading-sm"
     placeholder="Search for any word..."
     formControlName="query"
   />

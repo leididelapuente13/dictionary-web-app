@@ -1,16 +1,6 @@
 <section class="flex flex-col gap-4 w-full">
   <section-title [title]="content().partOfSpeech!" />
-  <div class="flex flex-col gap-5">
-    <section-subtitle subtitle="Meaning" />
-    <ul
-      class="list-disc marker:text-primary flex flex-col gap-1.5 ml-5 md:ml-6 text-body-xs md:text-body-md"
-    >
-      @for (definition of content().definitions; track $index) {
-      <li>{{ definition.definition }}</li>
-      <p class="text-gray-500">{{ definition.example }}</p>
-      }
-    </ul>
-  </div>
+  <section-list [definitions]="content().definitions" />
   @if (content().synonyms.length > 0) {
   <dictionary-links [item]="{ name: 'synonyms', paths: content().synonyms }" />
   }

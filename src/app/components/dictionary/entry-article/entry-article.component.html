@@ -1,4 +1,4 @@
-<article class="flex flex-col gap-7 pb-8">
+<article class="flex flex-col gap-7 pb-8 text-gray-800 dark:text-white">
   <dictionary-header [phonetic]="dictionaryEntry()?.phonetic" />
   @for (meaning of dictionaryEntry()?.meanings; track $index) {
   <dictionary-section [content]="meaning" />
