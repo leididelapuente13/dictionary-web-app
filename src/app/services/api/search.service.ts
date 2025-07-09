@@ -4,7 +4,7 @@ import {Injectable, signal } from '@angular/core';
   providedIn: 'root'
 })
 export class SearchService {
-  _searchWord = signal<string>('');
+  _searchWord = signal<string>('keyboard');
 
   readonly searchWord = this._searchWord.asReadonly();
 
