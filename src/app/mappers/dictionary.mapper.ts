@@ -4,7 +4,7 @@ export class DictionaryMapper {
   static RestDictionaryEntryToDictionaryEntry(restDictionary: RESTDictionaryEntry): DictionaryEntry {
     const { word, phonetics, meanings, sourceUrls } = restDictionary
 
-    const phoneticWithAudio = phonetics.find((phonetic) => phonetic.audio !== undefined);
+    const phoneticWithAudio = phonetics.find((phonetic) => phonetic.audio !== '');
 
     return {
       phonetic: {
