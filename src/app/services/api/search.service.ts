@@ -1,25 +1,14 @@
-import { inject, Injectable, resource } from '@angular/core';
-import { firstValueFrom } from 'rxjs';
-import { DictionaryService } from './dictionary.service';
+import {Injectable, signal } from '@angular/core';
 
 @Injectable({
   providedIn: 'root'
 })
 export class SearchService {
-  dictionaryService = inject(DictionaryService);
-  wordToSearch: string = '';
+  _searchWord = signal<string>('');
 
-  setWordToSearch(word: string) {
-    this.wordToSearch = word;
+  readonly searchWord = this._searchWord.asReadonly();
+
+  search(word: string) {
+    this._searchWord.set(word);
   }
-
-  dictionaryEntryResource = resource({
-    request: () => ({ word: this.wordToSearch }),
-    loader: ({ request }) => {
-      if (this.wordToSearch === '') {
-        return Promise.resolve(undefined);
-      }
-      return firstValueFrom(this.dictionaryService.getDictionaryEntry(request.word));
-    }
-  })
 }
