@@ -5,15 +5,15 @@ import { firstValueFrom } from 'rxjs';
 import { DictionaryService, FontFamilyStateService } from '../../services';
 import { EntryArticleComponent } from '../../components/dictionary/entry-article/entry-article.component';
 import { HeaderComponent } from '../../components/layout/header/header.component';
+import { SearchBarComponent } from "../../components/layout/search-bar/search-bar.component";
 import { LoaderComponent } from '../../components/feedback/loader/loader.component';
 import { NotFoundComponent } from '../../components/feedback/not-found/not-found.component';
-import { SearchBarComponent } from '../../components/search-bar/search-bar.component';
 import { SearchService } from '../../services/api/search.service';
 
 
 @Component({
   selector: 'app-main',
-  imports: [NgClass, HeaderComponent, SearchBarComponent, EntryArticleComponent, NotFoundComponent, LoaderComponent],
+  imports: [NgClass, HeaderComponent, EntryArticleComponent, NotFoundComponent, LoaderComponent, SearchBarComponent],
   templateUrl: './main.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
