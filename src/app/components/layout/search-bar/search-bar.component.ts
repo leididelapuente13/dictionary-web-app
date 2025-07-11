@@ -2,7 +2,7 @@ import { ChangeDetectionStrategy, Component, inject, output } from '@angular/cor
 import { NgClass, NgOptimizedImage } from '@angular/common';
 import { ReactiveFormsModule, FormControl, FormGroup, Validators, ValidationErrors } from '@angular/forms';
 import { ErrorMessageComponent } from './error-message/error-message.component';
-import { SearchService } from '../../services/api/search.service';
+import { SearchService } from '../../../services/api/search.service';
 
 @Component({
   selector: 'dictionary-search-bar',
